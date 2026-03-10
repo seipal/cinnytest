@@ -122,7 +122,7 @@ export const createRoom = async (mx: MatrixClient, data: CreateRoomData): Promis
     initialState.push(createRoomParentState(data.parent));
   }
 
-  if (data.type === RoomType.Call) {
+  if (data.type === RoomType.Call || data.type === RoomType.ElementVideo) {
     initialState.push(createRoomCallState());
   }
 
@@ -139,7 +139,7 @@ export const createRoom = async (mx: MatrixClient, data: CreateRoomData): Promis
       data.additionalCreators
     ),
     power_level_content_override:
-      data.type === RoomType.Call ? createVoiceRoomPowerLevelsOverride() : undefined,
+      data.type === RoomType.Call || data.type === RoomType.ElementVideo ? createVoiceRoomPowerLevelsOverride() : undefined,
     initial_state: initialState,
   };
 
