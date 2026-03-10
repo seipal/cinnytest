@@ -50,7 +50,7 @@ const getCreateRoomAccessToIcon = (access: CreateRoomAccess, type?: CreateRoomTy
   if (access === CreateRoomAccess.Restricted) joinRule = JoinRule.Restricted;
   if (access === CreateRoomAccess.Private) joinRule = JoinRule.Knock;
 
-  return getRoomIconSrc(Icons, isVoiceRoom ? RoomType.Call : undefined, joinRule);
+  return getRoomIconSrc(Icons, isVoiceRoom ? RoomType.ElementVideo : undefined, joinRule);
 };
 
 const getCreateRoomTypeToIcon = (type: CreateRoomType) => {
@@ -137,7 +137,7 @@ export function CreateRoomForm({
     }
 
     let roomType: RoomType | undefined;
-    if (type === CreateRoomType.VoiceRoom) roomType = RoomType.Call;
+    if (type === CreateRoomType.VoiceRoom) roomType = RoomType.ElementVideo;
 
     create({
       version: selectedRoomVersion,

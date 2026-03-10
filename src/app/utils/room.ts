@@ -275,7 +275,7 @@ export const getRoomIconSrc = (
     return icons.Space;
   }
 
-  if (roomType === RoomType.Call) {
+  if (roomType === RoomType.Call || roomType === RoomType.ElementVideo) {
     if (joinRule === JoinRule.Public) return icons.VolumeHighGlobe;
     if (
       joinRule === JoinRule.Invite ||
